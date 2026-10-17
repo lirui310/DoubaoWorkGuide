@@ -1,178 +1,137 @@
 <p align="center">
-  <img src="./assets/readme-home.png" alt="豆包工作蓝皮书网站首页" width="100%">
+  <img src="./assets/logo.jpg" alt="重庆璀泊科技有限公司" width="160">
 </p>
 
-<h1 align="center">豆包工作蓝皮书</h1>
+<h1 align="center">重庆璀泊科技 · 豆包工作实战蓝皮书</h1>
 
-<p align="center"><strong>从零到一掌握豆包工作，把真实任务整理成可复用的工作方法</strong></p>
+<p align="center"><strong>企业级 AI Agent 实战指南：从单项任务提效，到构建高协同的智能工作系统</strong></p>
 
 <p align="center">
-  <a href="#在线阅读">在线阅读</a> ·
-  <a href="#项目简介">项目简介</a> ·
-  <a href="#内容地图">内容地图</a> ·
-  <a href="#本地运行">本地运行</a> ·
-  <a href="#参与完善">参与完善</a>
+  <a href="#蓝皮书知识体系">知识体系</a> ·
+  <a href="#推荐学习路径">学习路径</a> ·
+  <a href="#本地开发与打包">开发与打包</a> ·
+  <a href="#极简部署说明">极简部署</a> ·
+  <a href="#璀泊科技官方平台与生态矩阵">璀泊生态矩阵</a>
 </p>
 
-## 项目简介
+> 本套《豆包工作实战蓝皮书》是重庆璀泊科技有限公司针对企业级 AI Agent（智能体）与自动化工作系统实践沉淀的核心知识资产。公司内部用于员工技能实训与生产力跃迁；对外可作为智能化协作的样板成果，展示并赋能合作企业。
 
-豆包工作蓝皮书（DoubaoWork Guide）是一份面向豆包工作的系统化中文实践资料。项目为新用户提供从下载安装到完成首个可验收任务的完整上手路径，并继续覆盖连接器、Skill、API、定时任务、多 Agent 工作小队等核心能力。
+---
 
-基础能力之外，指南从个人提效、自媒体、知识管理、电商和金融研究五类工作场景出发，通过 31 个真实任务展示如何把材料、要求和工具组织为可检查、可交付、可复用的工作成果。
+## 蓝皮书知识体系
 
-当前项目收录 49 篇指南与案例，并提供全文搜索、章节导航、场景任务速达、图片与视频展示、阅读进度记录、日间/暗色主题及移动端适配。内容与网站展示层相互独立，后续扩充章节时可以保持稳定的阅读架构。
+全书共收录 49 篇系统指南与实战案例，覆盖从安装使用到多 Agent 协作的全生命周期：
 
-## 在线阅读
+| 模块 | 规模 | 核心内容 | 学习目标 |
+| :--- | :--- | :--- | :--- |
+| **使用篇** | 12 篇 | 下载安装、界面认识、首个任务、连接器 (MCP)、Skill、工作伙伴、手机控制、API、定时任务、多 Agent 工作小队、提示词指令模板 | 跑通运行环境，掌握单点工具基础 |
+| **入门篇** | 6 篇 | Office 文档自动化、飞书与多方协同、文件批量整理、远程接续、自动资讯简报 | 攻坚职场日常高频核心小事 |
+| **场景篇** | 5 类场景，31 个任务 | 个人提效、自媒体内容矩阵、知识库协同、电商运营主图生成、金融与研报审计 | 带着真实业务任务直接产出交付物 |
 
-推荐访问 [doubaowork.homes](https://doubaowork.homes/) 阅读完整内容。在线版提供完整章节目录、全文搜索、场景任务速达、图片与视频展示、阅读进度记录、跟随系统的日间/暗色主题和移动端适配。
+### 场景篇核心任务覆盖：
+- **个人提效**：会议纪要与待办、临时深度调研、日报周报自动总结、快速精读专业书籍、个人品牌包装。
+- **自媒体**：热点选题捕捉、公众号成稿、多平台多版本改写、长视频转字幕高光、评论区选题挖掘、个人 IP 体检。
+- **知识管理**：随手笔记智能检索、飞书知识库蒸馏封装为可复用 Skill、海量 Prompt 体系化归类。
+- **电商**：产品白底原图一键转场景主图、批量详情页文案与卖点提炼。
+- **金融研究**：研报多空分歧提取与事实审计、从 K 线图完成证据链投研评审。
 
-GitHub 适合查看项目结构和参与完善，连续阅读请使用在线版。
+---
 
-- [从第一篇开始](https://doubaowork.homes/#/p/21b54541198d4915)
-- [查看阅读指南](https://doubaowork.homes/#/intro)
+## 推荐学习路径
 
-## 适合谁阅读
+- **新员工 / 初学者**：从 [使用篇] 的《初始豆包工作》与《第一个任务》开始，快速跑通客户端与连接器环境。
+- **业务攻坚 / 即学即用**：直接切入 [场景篇]，挑选与当前业务最接近的真实任务，直接复用现成指令、实测步骤与验收方法。
+- **部门负责人 / 架构搭建**：重点研究 Skill 封装、连接器集成与多 Agent 小队协作模式，设计部门专属数字员工工作流。
 
-- 第一次使用豆包工作，希望快速跑通完整流程的个人用户
-- 已经有明确任务，希望找到相近案例和可执行方法的职场人
-- 需要把一次成功经验整理成稳定工作流的团队与内容维护者
-- 关注 AI 在内容、知识、电商和研究场景中实际落地方式的实践者
+---
 
-## 内容地图
+## 本地开发与打包
 
-| 部分 | 规模 | 主要内容 |
-| --- | --- | --- |
-| 使用篇 | 12 篇 | 安装登录、界面与任务、第一个任务、连接器、Skill、工作伙伴、手机控制、API、定时任务、多 Agent 和指令模板 |
-| 入门篇 | 6 篇 | Office 文档、协作、文件整理、远程任务、生活事务和自动资讯简报 |
-| 场景篇 | 5 类场景，31 个任务 | 个人提效、自媒体、知识管理、电商和金融研究 |
-
-五类场景覆盖以下问题。
-
-- **个人提效**　邮件处理、会议待办、文档交付、数据分析、调研报告、日报、阅读学习与个人网站
-- **自媒体**　选题、公众号写作、多平台改写、口播分镜、音视频处理、评论复盘、GEO 体检与短视频生产
-- **知识管理**　资料收藏、重复文件、项目归档、知识检索、提示词分类与过期内容治理
-- **电商**　从产品原图出发，完成参考拆解、视觉策划与成套主图生产
-- **金融研究**　市场复盘、财报分析、公司研究、估值比较、治理分析、研报审计与投研评审
-
-## 网站能力
-
-- 独立章节页面、前后篇导航和页内目录
-- 全文搜索与场景任务快速访问
-- 图片画廊、组合排版和本地视频播放
-- 桌面端与移动端响应式布局
-- 跟随系统、固定日间和固定暗色三种主题状态
-- 阅读进度、继续阅读位置与目录展开偏好保存
-- 分享卡片、图片放大和提示词一键复制
-- 内容数据、媒体资源与界面逻辑分层维护
-
-## 本地运行
-
-网站采用纯静态结构，无需安装前端依赖。在项目根目录运行以下命令。
+本项目为纯原生现代化单页知识库，不依赖第三方构建框架，环境仅需 Node.js（推荐 Node.js >= 18）：
 
 ```bash
-python3 -m http.server 4173 --bind 127.0.0.1 --directory site
+# 本地启动预览服务器（默认 8080 端口）
+npm run dev
+
+# 编译静态产物到 dist/ 目录
+npm run build
+
+# 一键打包编译并生成 dist.zip 压缩包（直接用于生产环境部署）
+npm run bundle
+
+# 预览编译后的 dist/ 产物
+npm run preview
 ```
 
-浏览器访问以下地址。
+---
 
-```text
-http://127.0.0.1:4173/
+## 极简部署说明
+
+本项目为 **100% 纯静态知识库**，完全不依赖任何数据库与云函数后端。
+
+### 1. 一键 Zip 部署（最推荐）
+本地执行：
+```bash
+npm run bundle
+```
+生成根目录下的 **`dist.zip`**，上传至宝塔面板、1Panel、Nginx 或虚拟主机网站根目录解压即可使用。
+
+### 2. 内置原生 Node 服务
+如果服务器有 Node.js 环境，可直接通过内置脚本启动：
+```bash
+npm run build
+node scripts/serve.mjs 80
+```
+支持 PM2 常驻后台：
+```bash
+pm2 start scripts/serve.mjs --name "cuibo-doubao" -- 8080
 ```
 
-其他进程占用 `4173` 时，可替换为任意可用端口。
+详细配置说明请参阅 [DEPLOYMENT.md](./DEPLOYMENT.md)。
 
-## 内容维护
-
-公开内容由结构化数据和本地媒体资源驱动。
-
-- `site/content/site-content.json` 保存章节结构与完整正文
-- `site/content/site-index.json` 是由完整正文生成的轻量首屏索引
-- `site/media/` 保存公开页面引用的图片和视频
-- `site/js/app.js` 负责路由、搜索、按需加载和页面交互
-- `site/js/markdown.js` 负责 Markdown 安全渲染
-- `site/css/` 保存视觉系统、正文样式和响应式布局
-- `site/index.html` 提供站点入口和全局导航
-
-修改 `site/content/site-content.json` 后，运行 `npm run build:index` 重新生成轻量索引，并将两者一起提交。
-
-内容更新应保留现有节点关系与公开媒体路径。界面调整应优先在展示层完成，避免把章节内容直接写入页面模板。
+---
 
 ## 目录结构
 
 ```text
-doubaowork-guide/
-├── assets/
-│   ├── authors/                 # 作者名片
-│   └── readme-home.png          # README 首页预览
-├── site/
-│   ├── assets/                  # 网站界面素材
-│   ├── content/
-│   │   ├── site-content.json    # 完整公开内容
-│   │   └── site-index.json      # 生成式轻量首屏索引
-│   ├── css/                     # 基础、布局与正文样式
-│   ├── js/                      # 路由、交互与 Markdown 渲染
-│   ├── media/                   # 公开图片与视频
-│   ├── _headers                 # Cloudflare Pages 缓存策略
-│   └── index.html               # 网站入口
-├── tools/                       # 索引生成、浏览器回归与截图脚本
-├── package.json                 # 本地测试入口
-├── .gitignore
-├── LICENSE
-└── README.md
+DoubaoWorkGuide
+├─ assets/                         # 公司 Logo 及核心品牌素材
+├─ scripts/                        # 编译与打包脚本
+│  ├─ build.mjs                    # 静态产物编译脚本 (输出至 dist/)
+│  ├─ bundle.mjs                   # 一键压缩打包脚本 (输出 dist.zip)
+│  └─ serve.mjs                    # 原生零依赖高性能静态服务器
+├─ site/                           # 站点核心源码 (100% 纯静态单页架构)
+│  ├─ assets/                      # 站点公共静态素材与公司 Logo
+│  ├─ content/                     # 全书文档与预编译轻量索引 (site-content.json)
+│  ├─ css/                         # 基础设计令牌、排版与响应式样式
+│  ├─ fonts/                       # 自托管 Inter 字体资源
+│  ├─ js/                          # 原生 ES Module 核心渲染与阅读引擎
+│  ├─ media/                       # 实操高清截图与演示视频
+│  ├─ index.html                   # 门户主页面入口
+│  └─ _headers                     # 静态资源缓存控制头配置
+├─ tools/                          # 索引与内容构建辅助工具
+├─ DEPLOYMENT.md                   # 极简纯静态部署指南
+├─ package.json                    # 工程脚本与轻量元数据
+└─ README.md                       # 项目说明
 ```
 
-## 本地验收
+---
 
-首次运行浏览器自动化前安装开发依赖：
+## 璀泊科技官方平台与生态矩阵
 
-```bash
-npm install
-```
+公司持续布局企业级人工智能技术研发、行业解决方案与专业人才实训：
 
-保持本地服务器运行，再在另一个终端执行：
+| 平台名称 | 平台定位与简介 | 访问链接 |
+| :--- | :--- | :--- |
+| **璀泊官网** | 重庆璀泊科技有限公司官方网站，企业全景与数字化解决方案 | [www.cuibokeji.com](https://www.cuibokeji.com) |
+| **璀泊智搜** | 新一代智能检索与行业情报分析平台，提供精准知识与数据洞察 | [geo.cuibokeji.com](https://geo.cuibokeji.com) |
+| **璀泊人工智能证书** | 工业和信息化领域人工智能技能实训与专业认证平台 | [miit.cuibokeji.com](https://miit.cuibokeji.com) |
+| **璀泊Ai科学社** | 汇聚开发者、极客与 AI 创新者的开放学习交流社区 | [www.edu.cuibokeji.com](https://www.edu.cuibokeji.com) |
+| **WorkBuddy 蓝皮书** | 重庆璀泊科技 · WorkBuddy 企业实战蓝皮书知识库 | [docs-workbuddy.cuibokeji.com](https://docs-workbuddy.cuibokeji.com) |
 
-```bash
-npm test
-npm run audit
-```
+---
 
-`npm test` 覆盖启动、首页跳转、继续阅读、搜索、移动端、交流群、主题切换与首页配色；`npm run audit` 进一步检查全部内容路由、媒体文件、控制台错误、横向溢出、正文图框、按需加载和模拟弱网首屏时间。
+## 知识产权与版权声明
 
-## 发布方式
-
-站点发布目录为 `site`，无需额外构建步骤。主分支保存线上版本，当前网站由 Cloudflare 托管并使用独立域名访问。
-
-私有访问统计包含独立的 Worker、D1 和管理员登录，需要单独配置。开发、预览部署和数据口径见 [ANALYTICS.md](ANALYTICS.md)；当前功能在 `codex/private-analytics` 分支，待确认后才能合并并接入正式网站。
-
-- 在线网站 [doubaowork.homes](https://doubaowork.homes/)
-- GitHub 仓库 [AlephAITech/DoubaoWorkGuide](https://github.com/AlephAITech/DoubaoWorkGuide)
-
-## 参与完善
-
-欢迎通过 Issue 或 Pull Request 补充案例、修正文案和改进阅读体验。新增案例建议包含清晰的任务背景、输入材料、执行过程、交付结果和验收依据。提交图片或视频前，请确认素材拥有公开使用权限，并移除账号、联系方式和业务数据等敏感信息。
-
-## 作者们
-
-感谢以下作者共同参与《豆包工作蓝皮书》的创作与维护。点击名片可查看原图并扫描二维码。
-
-<p align="center">
-  <a href="./assets/authors/jia-mu-wei-lai-pai.png"><img src="./assets/authors/jia-mu-wei-lai-pai.png" alt="甲木未来派" width="48%"></a>
-  <a href="./assets/authors/mo-yu-xiao-li.png"><img src="./assets/authors/mo-yu-xiao-li.png" alt="摸鱼小李" width="48%"></a>
-</p>
-
-<p align="center">
-  <a href="./assets/authors/dai-shu-di-ai-ke-zhan.png"><img src="./assets/authors/dai-shu-di-ai-ke-zhan.png" alt="袋鼠帝AI客栈" width="48%"></a>
-  <a href="./assets/authors/cang-he.png"><img src="./assets/authors/cang-he.png" alt="苍何" width="48%"></a>
-</p>
-
-<p align="center">
-  <a href="./assets/authors/liu-cong-nlp.png"><img src="./assets/authors/liu-cong-nlp.png" alt="刘聪NLP" width="48%"></a>
-</p>
-
-## 声明
-
-本项目由社区作者共同维护，属于豆包工作的非官方实践指南。产品功能、界面、价格、权限和可用范围可能调整，涉及具体操作时请以产品当前版本及官方说明为准。
-
-## 开源协议
-
-本项目采用 [MIT License](./LICENSE) 开源。你可以自由使用、复制、修改和分发本项目，但需要保留原始版权声明和许可证文本。
+© 2026 重庆璀泊科技有限公司 All Rights Reserved.  
+本知识库内容由重庆璀泊科技有限公司整理维护，用于内部赋能与合作交流。

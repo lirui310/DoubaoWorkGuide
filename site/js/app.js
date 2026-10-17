@@ -13,15 +13,11 @@ const RAIL_KEY = "dwg.rail"; /* 左侧章节目录："1" 固定展开，其余�
 const THEME_KEY = "dwg.theme";
 const THEME_ORDER = ["system", "light", "dark"];
 const ASSET_VERSION =
-  document.querySelector('meta[name="dwg-assets-version"]')?.content || "20260918-qr-1";
+  document.querySelector('meta[name="dwg-assets-version"]')?.content || "20261017-cb";
 const versionedAsset = (path) => `${path}?v=${encodeURIComponent(ASSET_VERSION)}`;
 
-// Load analytics independently: its download or API failure never blocks reading.
-let analyticsModule;
-function trackRenderedPage(page) {
-  (analyticsModule ||= import(`./analytics.js?v=${encodeURIComponent(ASSET_VERSION)}`))
-    .then(({ trackPage }) => trackPage(page))
-    .catch(() => { analyticsModule = null; });
+function trackRenderedPage(_page) {
+  // 100% 纯静态免运维，不向任何外部后端发送数据
 }
 
 const dom = {
@@ -331,6 +327,7 @@ function parseHash() {
   if (parts[0] === "intro") return { name: "intro" };
   if (parts[0] === "reading-guide") return { name: "intro" };
   if (parts[0] === "toc") return { name: "toc" };
+  if (parts[0] === "about") return { name: "about" };
   if (parts[0] === "p" && parts[1]) return { name: "doc", id: parts[1] };
   if (parts[0] === "doc" && parts[1]) {
     return { name: "doc", id: parts[1].replace(/^doc-/, "") };
@@ -429,13 +426,13 @@ function viewLanding() {
           ([text, x, y], i) =>
             `<span class="bc-note" style="left:${x}%;--note-y:${y}%;--i:${i}">${escapeHtml(text)}</span>`
         ).join("")}</div>
-        <div class="bookcover__spine" aria-hidden="true"><span>豆包工作蓝皮书 · 第一版 · 2026</span></div>
+        <div class="bookcover__spine" aria-hidden="true"><span>重庆璀泊科技有限公司 · 豆包工作实战蓝皮书 · 2026</span></div>
         <span class="bookcover__reg bookcover__reg--tl" aria-hidden="true"></span>
         <span class="bookcover__reg bookcover__reg--tr" aria-hidden="true"></span>
         <span class="bookcover__reg bookcover__reg--bl" aria-hidden="true"></span>
         <span class="bookcover__reg bookcover__reg--br" aria-hidden="true"></span>
         <div class="bookcover__bar">
-          <span class="bookcover__brand">DOUBAO WORK<span class="bookcover__brand-ext"> · FIELD MANUAL</span></span>
+          <span class="bookcover__brand">CUIBO TECH<span class="bookcover__brand-ext"> · ENTERPRISE AI FIELD MANUAL</span></span>
           <span class="bookcover__nav">
             <button class="chip chip--ghost theme-toggle" type="button" data-theme-toggle>
               <span class="theme-toggle__icon" aria-hidden="true">◐</span>
@@ -443,17 +440,18 @@ function viewLanding() {
             </button>
             <button class="chip chip--ghost" type="button" data-search>搜索</button>
             <a class="chip chip--ghost" href="#/toc">目录</a>
-            <button class="chip chip--ghost" type="button" data-group>交流群</button>
+            <a class="chip chip--ghost" href="#/about">关于璀泊科技</a>
           </span>
         </div>
 
         <div class="bookcover__center">
-          <p class="bookcover__kicker"><span class="bookcover__dimline" aria-hidden="true"></span><span class="bookcover__kicker-text">豆包工作 · 系统化中文实践</span><span class="bookcover__dimline" aria-hidden="true"></span></p>
-          <h1 class="bookcover__title">豆包工作蓝皮书</h1>
-          <p class="bookcover__sub">把豆包工作用起来，从第一个能验收的任务开始。</p>
+          <p class="bookcover__kicker"><span class="bookcover__dimline" aria-hidden="true"></span><span class="bookcover__kicker-text">重庆璀泊科技 · 企业级 AI 实践资产</span><span class="bookcover__dimline" aria-hidden="true"></span></p>
+          <h1 class="bookcover__title">豆包工作实战蓝皮书</h1>
+          <p class="bookcover__sub">企业级 AI Agent 实战指南：从单项任务提效，到构建高协同的智能工作系统。</p>
           <div class="bookcover__actions">
             <a class="bcbtn bcbtn--solid" href="#/intro">开始阅读</a>
             <a class="bcbtn bcbtn--ghost" href="#/toc">查看目录</a>
+            <a class="bcbtn bcbtn--ghost" href="#/about">关于璀泊科技</a>
           </div>
           ${
             resumeEntry && !isSection(resumeEntry.doc)
@@ -483,7 +481,7 @@ function viewLanding() {
       </section>
 
       <div class="lp">
-        <span class="lp__side" aria-hidden="true">DOUBAO WORK · FIELD MANUAL · 2026</span>
+        <span class="lp__side" aria-hidden="true">CUIBO TECH · ENTERPRISE AI FIELD MANUAL · 2026</span>
         <section class="lp__section">
           <header class="lp__head">
             <div class="lp__index-row">
@@ -516,28 +514,17 @@ function viewLanding() {
 
         <section class="lp__cta">
           <div class="lp__cta-box">
-            <p class="lp__cta-kicker">EDITION 01 · 2026</p>
-            <p class="lp__cta-title">把豆包工作用起来，从第一个能验收的任务开始。</p>
+            <p class="lp__cta-kicker">CUIBO ENTERPRISE AI · 2026</p>
+            <p class="lp__cta-title">立足璀泊科技，让 AI 真正转化为企业新质生产力。</p>
             <div class="lp__cta-actions">
               <a class="bcbtn bcbtn--solid" href="#/intro">开始阅读</a>
               <a class="bcbtn bcbtn--ghost" href="#/toc">查看目录</a>
+              <a class="bcbtn bcbtn--ghost" href="#/about">了解璀泊科技</a>
             </div>
           </div>
         </section>
 
-        <footer class="lp__foot">
-          <p class="lp__foot-sig">DOUBAO WORK · FIELD MANUAL</p>
-          <nav class="lp__foot-links" aria-label="站外链接">
-            <a href="${FOOT_LINKS.contact}" target="_blank" rel="noopener noreferrer">联系我们</a>
-            <a class="lp__foot-git" href="${FOOT_LINKS.repo}" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库">${GITHUB_ICON}</a>
-            <a href="${FOOT_LINKS.community}" target="_blank" rel="noopener noreferrer">加入 AgentWork 社区</a>
-          </nav>
-          <p class="lp__foot-copy">© 豆包工作蓝皮书 · <a href="/privacy">统计说明</a> · <a href="/admin/analytics">管理</a></p>
-          <nav class="lp__foot-friends" aria-label="友情链接">
-            <span class="lp__foot-friends-label">友情链接</span>
-            ${friendLinksHtml()}
-          </nav>
-        </footer>
+        ${footer(false)}
       </div>
     </div>`;
 }
@@ -746,11 +733,11 @@ function viewIntro() {
           <p class="display">
             把豆包工作用起来，从第一个能验收的任务开始。<img
               class="mark"
-              src="assets/brand/doubao-mark-512.png"
-              alt=""
+              src="assets/brand/logo.jpg"
+              alt="重庆璀泊科技"
               aria-hidden="true"
             />
-            <span class="faded reveal reveal--blue">这是一本面向豆包工作的系统化中文实践蓝皮书。</span>
+            <span class="faded reveal reveal--blue">这是一本面向重庆璀泊科技企业级 AI Agent 实践的系统化蓝皮书。</span>
           </p>
 
           <p class="display reveal">
@@ -802,6 +789,7 @@ function viewIntro() {
                   : ""
               }
               <a class="pill pill--ghost" href="#/toc">查看完整目录</a>
+              <a class="pill pill--ghost" href="#/about">了解璀泊科技</a>
             </div>
           </div>
         </div>
@@ -1054,46 +1042,168 @@ function viewDoc(entry) {
    页脚与状态页
    ------------------------------------------------------------ */
 
-/* 页脚外链集中在这里改 */
-const FOOT_LINKS = {
-  repo: "https://github.com/AlephAITech/DoubaoWorkGuide",
-  contact: "https://github.com/AlephAITech/DoubaoWorkGuide/issues",
-  community: "https://github.com/AlephAITech",
-};
+/* ------------------------------------------------------------
+   璀泊科技生态矩阵与企业页脚
+   ------------------------------------------------------------ */
 
-/* 页脚友链 */
-const FRIEND_LINKS = [
-  ["WorkBuddy 蓝皮书", "https://workbuddy.homes/"],
-  ["观猹", "https://watcha.cn/"],
-  ["CodexGuide", "https://codexguide.ai/"],
+const CUIBO_ECOSYSTEM = [
+  { name: "璀泊官网", url: "https://www.cuibokeji.com", desc: "重庆璀泊科技有限公司官方网站，企业全景与数字化解决方案" },
+  { name: "璀泊智搜", url: "https://geo.cuibokeji.com", desc: "新一代智能检索与行业情报分析平台" },
+  { name: "璀泊人工智能证书", url: "https://miit.cuibokeji.com", desc: "工业和信息化领域人工智能技能实训与专业认证平台" },
+  { name: "璀泊Ai科学社", url: "https://www.edu.cuibokeji.com", desc: "开发者、极客与 AI 创新者的开放学习交流社区" },
+  { name: "WorkBuddy 蓝皮书", url: "https://docs-workbuddy.cuibokeji.com", desc: "重庆璀泊科技 · WorkBuddy 企业实战蓝皮书" },
 ];
 
-function friendLinksHtml() {
-  return FRIEND_LINKS.map(
-    ([name, url]) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${name}</a>`
-  ).join("");
-}
-
-/* GitHub 官方标志（octocat mark） */
-const GITHUB_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>`;
-
 function footer(tight = false) {
+  const ecoLinks = CUIBO_ECOSYSTEM.map(
+    (item) => `<a href="${item.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.name)}</a>`
+  ).join('<span class="cb-footer-sep">·</span>');
+
   return `
     <footer class="foot${tight ? " foot--tight" : ""}">
       <div class="foot__row">
-        <p class="foot__sig">DOUBAO WORK · FIELD MANUAL</p>
-        <nav class="foot__links" aria-label="站外链接">
-          <a href="${FOOT_LINKS.contact}" target="_blank" rel="noopener noreferrer">联系我们</a>
-          <a class="foot__git" href="${FOOT_LINKS.repo}" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库">${GITHUB_ICON}</a>
-          <a href="${FOOT_LINKS.community}" target="_blank" rel="noopener noreferrer">加入 AgentWork 社区</a>
-        </nav>
-        <p class="foot__copy">© 豆包工作蓝皮书 · <a href="/privacy">统计说明</a> · <a href="/admin/analytics">管理</a></p>
+        <p class="foot__sig">CUIBO TECH · ENTERPRISE AI FIELD MANUAL</p>
+        <div class="cb-footer-links">
+          <span class="cb-footer-links-title">璀泊生态矩阵：</span>
+          ${ecoLinks}
+        </div>
+        <div class="cb-footer-tagline">重庆璀泊科技有限公司 · 企业级 AI 实践与技能赋能平台</div>
+        <p class="foot__copy">Copyright © 2026 重庆璀泊科技有限公司 All Rights Reserved · <a href="#/about">关于璀泊科技</a></p>
       </div>
-      <nav class="foot__friends" aria-label="友情链接">
-        <span class="foot__friends-label">友情链接</span>
-        ${friendLinksHtml()}
-      </nav>
     </footer>`;
+}
+
+function viewAbout() {
+  const ecoCards = CUIBO_ECOSYSTEM.map(
+    (item) => `
+      <a class="about-eco__card" href="${item.url}" target="_blank" rel="noopener noreferrer">
+        <div class="about-eco__header">
+          <span class="about-eco__name">${escapeHtml(item.name)}</span>
+          <span class="about-eco__arrow" aria-hidden="true">↗</span>
+        </div>
+        <p class="about-eco__desc">${escapeHtml(item.desc)}</p>
+        <span class="about-eco__url">${escapeHtml(item.url.replace(/^https?:\/\//, ""))}</span>
+      </a>`
+  ).join("");
+
+  return `
+    <div class="view">
+      <div class="page about-page">
+        <article class="essay">
+          <p class="caption essay__kicker">关于我们 · 重庆璀泊科技有限公司</p>
+          <h1 class="display about__title">重庆璀泊科技有限公司</h1>
+          <p class="about__tagline">企业级 AI Agent 实战赋能与数字化生产力中心</p>
+
+          <div class="about__section">
+            <p class="body-text">
+              重庆璀泊科技有限公司致力于探索与落地先进的人工智能技术、数字化办公系统与智能化企业解决方案。
+            </p>
+            <p class="body-text" style="margin-top: 1em;">
+              本套《豆包工作实战蓝皮书》是公司内部针对 <strong>AI Agent（智能体）与自动化工作系统</strong> 深度实践、提炼沉淀的核心知识资产，旨在赋能公司全员实现高效、可靠、规范的 AI 协作，构建高生产力的人机协同团队。
+            </p>
+          </div>
+
+          <div class="about__divider"></div>
+
+          <section class="about__section">
+            <h2 class="display-2">建设目标与双重价值</h2>
+            <div class="about__grid">
+              <div class="about__card">
+                <h3 class="about__card-title">1. 内部赋能与人才进阶</h3>
+                <ul class="about__list">
+                  <li><strong>全员 AI 化上手</strong>：让每一位研发、运营、产品、设计、市场与职能人员能够熟练驾驭豆包工作，从日常具体提效开始，迈出 AI 协同第一步。</li>
+                  <li><strong>经验资产化沉淀</strong>：打破部门技能壁垒，将业务实践中的优质经验提炼封装为可执行、可共享的 Skill、连接器与提示词模板。</li>
+                  <li><strong>构建部门级 AI 团队</strong>：从“单点对话”升级为“多 Agent 协同小队”，在合规与安全边界内构建高可靠的企业数字员工工作流。</li>
+                </ul>
+              </div>
+              <div class="about__card">
+                <h3 class="about__card-title">2. 外部合作赋能与示范</h3>
+                <ul class="about__list">
+                  <li><strong>企业合作样板</strong>：向合作伙伴全面开放和展示璀泊科技在企业级 AI 实战中的系统化方法论与落地实践。</li>
+                  <li><strong>数字化转型协同</strong>：为合作企业提供真实、可借鉴、可复现的 AI 降本增效解决方案，携手推进业务链条的智能化升级。</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <div class="about__divider"></div>
+
+          <section class="about__section">
+            <h2 class="display-2">知识资产架构体系</h2>
+            <p class="body-text">本蓝皮书覆盖了从工具安装到团队落地的完整生命周期：</p>
+            <div class="about__pipeline">
+              <div class="about__pipe-step"><span>01</span>使用篇 (工具与环境)</div>
+              <span class="about__pipe-arrow">→</span>
+              <div class="about__pipe-step"><span>02</span>入门篇 (核心小事攻坚)</div>
+              <span class="about__pipe-arrow">→</span>
+              <div class="about__pipe-step"><span>03</span>场景篇 (5大场景31个任务)</div>
+              <span class="about__pipe-arrow">→</span>
+              <div class="about__pipe-step"><span>04</span>多Agent (智能协作系统)</div>
+            </div>
+            <div class="about__modules-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>模块</th>
+                    <th>规模</th>
+                    <th>核心内容与学习目标</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>使用篇</strong></td>
+                    <td>12 篇</td>
+                    <td>安装登录、界面操作、首个任务、连接器 (MCP)、Skill、手机控制、API与定时任务</td>
+                  </tr>
+                  <tr>
+                    <td><strong>入门篇</strong></td>
+                    <td>6 篇</td>
+                    <td>Office 三件套、飞书与多方协同、文件整理、远程接续、自动资讯简报</td>
+                  </tr>
+                  <tr>
+                    <td><strong>场景篇</strong></td>
+                    <td>31 个任务</td>
+                    <td>个人提效、自媒体内容矩阵、知识库管理、电商运营、金融与投资研究</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <div class="about__divider"></div>
+
+          <section class="about__section">
+            <h2 class="display-2">学习建议与安全规范</h2>
+            <div class="about__notice">
+              <p><strong>1. 坚持实战导向</strong>：避免空泛浏览，建议跟随教程在实际工作机器上逐步跑通案例与交付物。</p>
+              <p style="margin-top:0.6em;"><strong>2. 数据与信息安全红线（企业级要求）</strong>：</p>
+              <ul>
+                <li>严禁向外部未授权模型输入公司核心商业机密、敏感个人数据及未脱敏的业务源码。</li>
+                <li>使用连接器或自动化任务时，严格限定文件访问路径与权限边界。</li>
+              </ul>
+              <p style="margin-top:0.6em;"><strong>3. 持续迭代共建</strong>：欢迎各部门提炼总结新场景，向公司 AI 推进小组提交，共同丰富璀泊科技企业智库。</p>
+            </div>
+          </section>
+
+          <div class="about__divider"></div>
+
+          <section class="about__section">
+            <h2 class="display-2">璀泊科技官方平台与生态矩阵</h2>
+            <p class="body-text">公司持续布局企业级人工智能技术研发、行业解决方案、专业人才认证培训与知识库建设：</p>
+            <div class="about-eco__grid">
+              ${ecoCards}
+            </div>
+          </section>
+
+          <div class="about__actions">
+            <a class="pill" href="#/intro">开始阅读蓝皮书</a>
+            <a class="pill pill--ghost" href="#/toc">查看全部章节</a>
+            <a class="pill pill--ghost" href="#/">返回门户首页</a>
+          </div>
+        </article>
+      </div>
+      ${footer(true)}
+    </div>`;
 }
 
 function viewNotFound() {
@@ -1200,6 +1310,8 @@ function render() {
     html = viewToc();
   } else if (route.name === "intro") {
     html = viewIntro();
+  } else if (route.name === "about") {
+    html = viewAbout();
   } else if (route.name === "home") {
     html = viewLanding();
   } else {
@@ -1207,7 +1319,7 @@ function render() {
   }
 
   dom.app.innerHTML = html;
-  trackRenderedPage(doc ? `/p/${route.id}` : ({home:"/",intro:"/intro",toc:"/toc"}[route.name] || null));
+  trackRenderedPage(doc ? `/p/${route.id}` : ({home:"/",intro:"/intro",toc:"/toc",about:"/about"}[route.name] || null));
 
   // 首页有自己的蓝色书封（自带品牌行与入口），隐藏白底页眉
   document.body.classList.toggle("is-home", route.name === "home");
@@ -1219,12 +1331,14 @@ function render() {
   }
 
   document.title = doc
-    ? `${doc.title} · 豆包工作蓝皮书`
+    ? `${doc.title} · 重庆璀泊科技`
     : route.name === "toc"
-    ? "目录 · 豆包工作蓝皮书"
+    ? "目录 · 豆包工作实战蓝皮书 · 重庆璀泊科技"
     : route.name === "intro"
-    ? "导读 · 豆包工作蓝皮书"
-    : "豆包工作蓝皮书";
+    ? "导读 · 豆包工作实战蓝皮书 · 重庆璀泊科技"
+    : route.name === "about"
+    ? "关于我们 · 重庆璀泊科技有限公司"
+    : "重庆璀泊科技 · 豆包工作实战蓝皮书";
 
   // 点了「继续阅读」就回到上次的滚动位置，否则回顶
   if (doc && state.resumePending && state.resume?.token === doc.nodeToken) {
@@ -1593,63 +1707,7 @@ function closeShareBox() {
 }
 
 /* ------------------------------------------------------------
-   交流群悬浮二维码：贴近触发按钮出现，不遮页面、不锁滚动。
-   ------------------------------------------------------------ */
 
-let groupbox = null;
-let groupboxTrigger = null;
-
-function positionGroupBox(trigger) {
-  if (!groupbox || !trigger?.isConnected) {
-    closeGroupBox();
-    return;
-  }
-
-  const anchor = trigger.getBoundingClientRect();
-  const box = groupbox.getBoundingClientRect();
-  const margin = 12;
-  const compact = window.innerWidth <= 720;
-  let left = compact ? (window.innerWidth - box.width) / 2 : anchor.right - box.width;
-  let top = anchor.bottom + margin;
-
-  left = Math.min(window.innerWidth - box.width - margin, Math.max(margin, left));
-  if (top + box.height > window.innerHeight - margin) {
-    top = Math.max(margin, anchor.top - box.height - margin);
-  }
-
-  groupbox.style.left = `${Math.round(left)}px`;
-  groupbox.style.top = `${Math.round(top)}px`;
-}
-
-function openGroupBox(trigger) {
-  if (!groupbox) {
-    groupbox = document.createElement("div");
-    groupbox.className = "groupbox";
-    groupbox.dataset.open = "false";
-    groupbox.setAttribute("role", "dialog");
-    groupbox.setAttribute("aria-label", "加入交流群");
-    groupbox.innerHTML = `<img src="${versionedAsset(
-      "assets/qr-group.png"
-    )}" alt="豆包工作交流群二维码" />`;
-
-    document.body.appendChild(groupbox);
-  }
-
-  if (groupboxTrigger && groupboxTrigger !== trigger) {
-    groupboxTrigger.setAttribute("aria-expanded", "false");
-  }
-  groupboxTrigger = trigger;
-  groupboxTrigger?.setAttribute("aria-expanded", "true");
-  groupbox.dataset.open = "true";
-  positionGroupBox(trigger);
-}
-
-function closeGroupBox() {
-  if (!groupbox || groupbox.dataset.open !== "true") return;
-  groupbox.dataset.open = "false";
-  groupboxTrigger?.setAttribute("aria-expanded", "false");
-  groupboxTrigger = null;
-}
 
 /* ------------------------------------------------------------
    展示级文字按词组断行：CSS 的 word-break: auto-phrase 目前只认日文，
@@ -2143,7 +2201,6 @@ function initKeyboard() {
       closeLightbox();
       closeSearch();
       closeShareBox();
-      closeGroupBox();
       return;
     }
 
@@ -2183,20 +2240,6 @@ async function boot() {
   initPinbar();
   initAnchors();
   initSearch();
-
-  // 交流群入口：悬浮在当前按钮附近；再次点击、点空白或按 Esc 均关闭
-  document.addEventListener("click", (event) => {
-    const trigger = event.target.closest("[data-group]");
-    if (trigger) {
-      event.preventDefault();
-      if (groupbox?.dataset.open === "true" && groupboxTrigger === trigger) closeGroupBox();
-      else openGroupBox(trigger);
-      return;
-    }
-    if (groupbox?.dataset.open === "true" && !event.target.closest(".groupbox")) closeGroupBox();
-  });
-  window.addEventListener("resize", () => positionGroupBox(groupboxTrigger));
-  window.addEventListener("scroll", () => positionGroupBox(groupboxTrigger), { passive: true });
 
   try {
     if (parseHash().name === "doc") {

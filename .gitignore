@@ -27,13 +27,16 @@ pnpm-debug.log*
 # Internal content-maintenance workspace
 /docs/
 /content/
-/scripts/
 /.work/
 /drafts/
 /demos/
 /outputs/
 /public/
 /doc-fetch-resources/
+
+# Build artifacts
+dist/
+*.zip
 
 # Local authorization screenshots
 /*auth*.png

@@ -1,22 +1,18 @@
 {
-  "scripts": {
-    "build:index": "node tools/build-site-index.mjs",
-    "serve": "python3 -m http.server 4173 --bind 127.0.0.1 --directory site",
-    "test": "node tools/build-site-index.mjs && node tools/check-boot.mjs && node tools/check-landing.mjs && node tools/check-features.mjs && node tools/check-mobile.mjs && node tools/check-group.mjs && node tools/check-cover-palette.mjs && node tools/check-theme.mjs && node tools/check-followup.mjs && node tools/check-brand-system.mjs && node tools/check-reading-night.mjs && node tools/check-lp.mjs",
-    "audit": "node tools/audit-site.mjs && node tools/check-performance.mjs",
-    "analytics:prepare": "node tools/analytics/prepare-assets.mjs",
-    "analytics:credentials": "node tools/analytics/credentials.mjs",
-    "analytics:setup": "npm run analytics:prepare && npm run analytics:credentials && wrangler d1 migrations apply DB --local --config wrangler.analytics.jsonc",
-    "analytics:dev": "wrangler dev --config wrangler.analytics.jsonc --port 8787",
-    "analytics:test": "node --test tests/analytics/*.test.mjs",
-    "analytics:build": "npm run analytics:prepare && wrangler deploy --dry-run --config wrangler.analytics.jsonc --outdir .work/analytics/build",
-    "analytics:browser": "node tools/analytics/check-browser.mjs"
+  "name": "cuibo-doubao-guide",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "重庆璀泊科技有限公司 - 豆包工作 企业实战蓝皮书",
+  "engines": {
+    "node": ">=18"
   },
-  "devDependencies": {
-    "@fontsource/inter": "^5.3.0",
-    "esbuild": "0.28.1",
-    "miniflare": "5.20260911.0-alpha",
-    "puppeteer-core": "^23.11.1",
-    "wrangler": "4.131.1"
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "serve": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "bundle": "node scripts/bundle.mjs",
+    "preview": "node scripts/serve.mjs"
   }
 }
