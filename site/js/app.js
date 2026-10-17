@@ -440,7 +440,7 @@ function viewLanding() {
             </button>
             <button class="chip chip--ghost" type="button" data-search>搜索</button>
             <a class="chip chip--ghost" href="#/toc">目录</a>
-            <a class="chip chip--ghost" href="#/about">关于璀泊科技</a>
+            <a class="chip chip--ghost" href="#/about"><span class="chip-about-full">关于璀泊科技</span><span class="chip-about-short">关于</span></a>
           </span>
         </div>
 

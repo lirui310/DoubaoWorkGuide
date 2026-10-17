@@ -63,6 +63,19 @@
   letter-spacing: 0.04em;
 }
 
+.chip-about-short {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .chip-about-full {
+    display: none;
+  }
+  .chip-about-short {
+    display: inline;
+  }
+}
+
 @media (max-width: 720px) {
   .masthead {
     top: 16px;
