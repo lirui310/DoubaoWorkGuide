@@ -1076,131 +1076,171 @@ function footer(tight = false) {
 function viewAbout() {
   const ecoCards = CUIBO_ECOSYSTEM.map(
     (item) => `
-      <a class="about-eco__card" href="${item.url}" target="_blank" rel="noopener noreferrer">
-        <div class="about-eco__header">
-          <span class="about-eco__name">${escapeHtml(item.name)}</span>
-          <span class="about-eco__arrow" aria-hidden="true">↗</span>
+      <a class="about-eco-card" href="${item.url}" target="_blank" rel="noopener noreferrer">
+        <div class="about-eco-card__top">
+          <span class="about-eco-card__name">${escapeHtml(item.name)}</span>
+          <span class="about-eco-card__arrow" aria-hidden="true">↗</span>
         </div>
-        <p class="about-eco__desc">${escapeHtml(item.desc)}</p>
-        <span class="about-eco__url">${escapeHtml(item.url.replace(/^https?:\/\//, ""))}</span>
+        <p class="about-eco-card__desc">${escapeHtml(item.desc)}</p>
+        <span class="about-eco-card__url">${escapeHtml(item.url.replace(/^https?:\/\//, ""))}</span>
       </a>`
   ).join("");
 
   return `
     <div class="view">
       <div class="page about-page">
-        <article class="essay">
-          <p class="caption essay__kicker">关于我们 · 重庆璀泊科技有限公司</p>
-          <h1 class="display about__title">重庆璀泊科技有限公司</h1>
-          <p class="about__tagline">企业级 AI Agent 实战赋能与数字化生产力中心</p>
-
-          <div class="about__section">
-            <p class="body-text">
+        <header class="about-hero">
+          <div class="about-hero__badge">
+            <span class="about-hero__dot" aria-hidden="true"></span>
+            <span>关于我们 · 重庆璀泊科技有限公司</span>
+          </div>
+          <h1 class="about-hero__title">重庆璀泊科技有限公司</h1>
+          <p class="about-hero__tagline">企业级 AI Agent 实战赋能与数字化生产力中心</p>
+          <div class="about-hero__intro">
+            <p>
               重庆璀泊科技有限公司致力于探索与落地先进的人工智能技术、数字化办公系统与智能化企业解决方案。
             </p>
-            <p class="body-text" style="margin-top: 1em;">
-              本套《豆包工作实战蓝皮书》是公司内部针对 <strong>AI Agent（智能体）与自动化工作系统</strong> 深度实践、提炼沉淀的核心知识资产，旨在赋能公司全员实现高效、可靠、规范的 AI 协作，构建高生产力的人机协同团队。
+            <p>
+              本套《豆包工作实战蓝皮书》是公司内部针对 <strong>AI Agent（智能体）与自动化工作系统</strong> 深度实践、提炼沉淀的核心知识资产，旨在赋能公司全员实现高效、可靠、规范的 AI 协作，构建高生产力的人机协同团队；对外可作为智能化协作的样板成果，展示并赋能合作企业。
             </p>
           </div>
+        </header>
 
-          <div class="about__divider"></div>
-
-          <section class="about__section">
-            <h2 class="display-2">建设目标与双重价值</h2>
-            <div class="about__grid">
-              <div class="about__card">
-                <h3 class="about__card-title">1. 内部赋能与人才进阶</h3>
-                <ul class="about__list">
-                  <li><strong>全员 AI 化上手</strong>：让每一位研发、运营、产品、设计、市场与职能人员能够熟练驾驭豆包工作，从日常具体提效开始，迈出 AI 协同第一步。</li>
-                  <li><strong>经验资产化沉淀</strong>：打破部门技能壁垒，将业务实践中的优质经验提炼封装为可执行、可共享的 Skill、连接器与提示词模板。</li>
-                  <li><strong>构建部门级 AI 团队</strong>：从“单点对话”升级为“多 Agent 协同小队”，在合规与安全边界内构建高可靠的企业数字员工工作流。</li>
-                </ul>
+        <section class="about-block">
+          <div class="about-block__header">
+            <span class="about-block__num">01</span>
+            <h2 class="about-block__title">建设目标与双重价值</h2>
+          </div>
+          <div class="about-grid-2">
+            <div class="about-card">
+              <div class="about-card__header">
+                <span class="about-card__icon" aria-hidden="true">🏢</span>
+                <h3 class="about-card__title">内部赋能与人才进阶</h3>
               </div>
-              <div class="about__card">
-                <h3 class="about__card-title">2. 外部合作赋能与示范</h3>
-                <ul class="about__list">
-                  <li><strong>企业合作样板</strong>：向合作伙伴全面开放和展示璀泊科技在企业级 AI 实战中的系统化方法论与落地实践。</li>
-                  <li><strong>数字化转型协同</strong>：为合作企业提供真实、可借鉴、可复现的 AI 降本增效解决方案，携手推进业务链条的智能化升级。</li>
-                </ul>
+              <ul class="about-card__list">
+                <li><strong>全员 AI 化上手</strong>：让每一位研发、运营、产品、设计、市场与职能人员熟练驾驭豆包工作，从日常具体任务提效开始，迈出人机协同第一步。</li>
+                <li><strong>经验资产化沉淀</strong>：打破部门技能壁垒，将业务实践中的优质经验提炼封装为可执行、可共享的 Skill、连接器与指令模板。</li>
+                <li><strong>构建部门级 AI 团队</strong>：从“单点对话”升级为“多 Agent 协同小队”，在合规与安全边界内构建高可靠的企业数字员工工作流。</li>
+              </ul>
+            </div>
+
+            <div class="about-card">
+              <div class="about-card__header">
+                <span class="about-card__icon" aria-hidden="true">🤝</span>
+                <h3 class="about-card__title">外部合作赋能与示范</h3>
               </div>
+              <ul class="about-card__list">
+                <li><strong>企业合作样板</strong>：向合作伙伴全面开放和展示璀泊科技在企业级 AI 实战中的系统化方法论与落地实践。</li>
+                <li><strong>数字化转型协同</strong>：为合作企业提供真实、可借鉴、可复现的 AI 降本增效解决方案，携手推进业务链条的智能化升级。</li>
+              </ul>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <div class="about__divider"></div>
-
-          <section class="about__section">
-            <h2 class="display-2">知识资产架构体系</h2>
-            <p class="body-text">本蓝皮书覆盖了从工具安装到团队落地的完整生命周期：</p>
-            <div class="about__pipeline">
-              <div class="about__pipe-step"><span>01</span>使用篇 (工具与环境)</div>
-              <span class="about__pipe-arrow">→</span>
-              <div class="about__pipe-step"><span>02</span>入门篇 (核心小事攻坚)</div>
-              <span class="about__pipe-arrow">→</span>
-              <div class="about__pipe-step"><span>03</span>场景篇 (5大场景31个任务)</div>
-              <span class="about__pipe-arrow">→</span>
-              <div class="about__pipe-step"><span>04</span>多Agent (智能协作系统)</div>
+        <section class="about-block">
+          <div class="about-block__header">
+            <span class="about-block__num">02</span>
+            <h2 class="about-block__title">知识资产架构体系</h2>
+          </div>
+          <p class="about-block__desc">本蓝皮书覆盖了从工具安装到团队落地的全生命周期，按学习与落地演进路径划分：</p>
+          
+          <div class="about-pipeline">
+            <div class="about-pipe-step">
+              <span class="about-pipe-step__idx">STEP 01</span>
+              <span class="about-pipe-step__name">使用篇</span>
+              <span class="about-pipe-step__sub">工具与运行环境</span>
             </div>
-            <div class="about__modules-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>模块</th>
-                    <th>规模</th>
-                    <th>核心内容与学习目标</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>使用篇</strong></td>
-                    <td>12 篇</td>
-                    <td>安装登录、界面操作、首个任务、连接器 (MCP)、Skill、手机控制、API与定时任务</td>
-                  </tr>
-                  <tr>
-                    <td><strong>入门篇</strong></td>
-                    <td>6 篇</td>
-                    <td>Office 三件套、飞书与多方协同、文件整理、远程接续、自动资讯简报</td>
-                  </tr>
-                  <tr>
-                    <td><strong>场景篇</strong></td>
-                    <td>31 个任务</td>
-                    <td>个人提效、自媒体内容矩阵、知识库管理、电商运营、金融与投资研究</td>
-                  </tr>
-                </tbody>
-              </table>
+            <span class="about-pipe-arrow" aria-hidden="true">→</span>
+            <div class="about-pipe-step">
+              <span class="about-pipe-step__idx">STEP 02</span>
+              <span class="about-pipe-step__name">入门篇</span>
+              <span class="about-pipe-step__sub">日常核心小事攻坚</span>
             </div>
-          </section>
+            <span class="about-pipe-arrow" aria-hidden="true">→</span>
+            <div class="about-pipe-step">
+              <span class="about-pipe-step__idx">STEP 03</span>
+              <span class="about-pipe-step__name">场景篇</span>
+              <span class="about-pipe-step__sub">5大类场景31任务</span>
+            </div>
+            <span class="about-pipe-arrow" aria-hidden="true">→</span>
+            <div class="about-pipe-step">
+              <span class="about-pipe-step__idx">STEP 04</span>
+              <span class="about-pipe-step__name">多 Agent</span>
+              <span class="about-pipe-step__sub">部门级智能系统</span>
+            </div>
+          </div>
 
-          <div class="about__divider"></div>
+          <div class="about-table-wrap">
+            <table class="about-table">
+              <thead>
+                <tr>
+                  <th style="width: 130px;">模块</th>
+                  <th style="width: 140px;">篇幅规模</th>
+                  <th>核心内容与实战目标</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="about-tag">使用篇</span></td>
+                  <td>12 篇系统指南</td>
+                  <td>安装登录、界面操作、首个任务、连接器 (MCP)、Skill、手机控制、API 与定时任务、指令模板</td>
+                </tr>
+                <tr>
+                  <td><span class="about-tag">入门篇</span></td>
+                  <td>6 篇高频任务</td>
+                  <td>Office 文档自动化 (Word/Excel/PPT)、飞书知识库与多方协同、文件批量整理、远程任务接续、自动资讯简报</td>
+                </tr>
+                <tr>
+                  <td><span class="about-tag">场景篇</span></td>
+                  <td>5 类场景 31 个任务</td>
+                  <td>个人提效 (5)、自媒体内容矩阵 (7)、知识管理 (5)、电商运营主图生成 (7)、金融与投资研报审计 (7)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-          <section class="about__section">
-            <h2 class="display-2">学习建议与安全规范</h2>
-            <div class="about__notice">
-              <p><strong>1. 坚持实战导向</strong>：避免空泛浏览，建议跟随教程在实际工作机器上逐步跑通案例与交付物。</p>
-              <p style="margin-top:0.6em;"><strong>2. 数据与信息安全红线（企业级要求）</strong>：</p>
+        <section class="about-block">
+          <div class="about-block__header">
+            <span class="about-block__num">03</span>
+            <h2 class="about-block__title">学习建议与安全规范</h2>
+          </div>
+          <div class="about-callout">
+            <div class="about-callout__item">
+              <h4>💡 坚持实战导向</h4>
+              <p>避免空泛浏览，建议跟随教程在实际工作机器上逐步跑通案例，将材料、要求和工具组织为可检查、可交付、可复用的工作成果。</p>
+            </div>
+            <div class="about-callout__item about-callout__item--danger">
+              <h4>🛡️ 数据与信息安全红线（企业级刚性要求）</h4>
               <ul>
                 <li>严禁向外部未授权模型输入公司核心商业机密、敏感个人数据及未脱敏的业务源码。</li>
-                <li>使用连接器或自动化任务时，严格限定文件访问路径与权限边界。</li>
+                <li>使用连接器 (MCP) 或自动化脚本时，严格限定文件访问路径与权限边界，防止误操作。</li>
               </ul>
-              <p style="margin-top:0.6em;"><strong>3. 持续迭代共建</strong>：欢迎各部门提炼总结新场景，向公司 AI 推进小组提交，共同丰富璀泊科技企业智库。</p>
             </div>
-          </section>
-
-          <div class="about__divider"></div>
-
-          <section class="about__section">
-            <h2 class="display-2">璀泊科技官方平台与生态矩阵</h2>
-            <p class="body-text">公司持续布局企业级人工智能技术研发、行业解决方案、专业人才认证培训与知识库建设：</p>
-            <div class="about-eco__grid">
-              ${ecoCards}
+            <div class="about-callout__item">
+              <h4>🌱 持续迭代与生态共建</h4>
+              <p>如果你在具体业务中探索出了新的典型落地场景，欢迎提炼总结并向公司 AI 推进小组提交，共同丰富璀泊科技的企业智库。</p>
             </div>
-          </section>
-
-          <div class="about__actions">
-            <a class="pill" href="#/intro">开始阅读蓝皮书</a>
-            <a class="pill pill--ghost" href="#/toc">查看全部章节</a>
-            <a class="pill pill--ghost" href="#/">返回门户首页</a>
           </div>
-        </article>
+        </section>
+
+        <section class="about-block">
+          <div class="about-block__header">
+            <span class="about-block__num">04</span>
+            <h2 class="about-block__title">璀泊科技官方平台与生态矩阵</h2>
+          </div>
+          <p class="about-block__desc">公司持续布局企业级人工智能技术研发、行业解决方案、专业人才实训与开源知识库建设：</p>
+          
+          <div class="about-eco-grid">
+            ${ecoCards}
+          </div>
+        </section>
+
+        <div class="about-actions">
+          <a class="bcbtn bcbtn--solid" href="#/intro">开始阅读蓝皮书</a>
+          <a class="bcbtn bcbtn--ghost" href="#/toc">查看全部 49 篇目录</a>
+          <a class="bcbtn bcbtn--ghost" href="#/">返回门户首页</a>
+        </div>
       </div>
       ${footer(true)}
     </div>`;
